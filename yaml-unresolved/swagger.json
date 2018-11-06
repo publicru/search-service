@@ -1,0 +1,376 @@
+swagger: '2.0'
+info:
+  description: Searches documens and editions 
+  version: "2.0.0"
+  title: Public Search API
+  # put the contact info for your development or API team
+  contact:
+    email: you@your-company.com
+
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+
+# tags are used for organizing operations
+tags:
+- name: doc
+  description: Search documents
+- name: edition
+  description: Search editions
+
+
+paths:
+
+  /api/v2/doc/{docId}:
+    get:
+      tags:
+      - doc
+      summary: returns a document
+      description: |
+        Returns document specified by docId, optionally with highlighted hits
+      produces:
+      - application/json
+      parameters: 
+      - name: docId
+        in: path
+        description: ID of document to return
+        required: true
+        type: integer
+        format: int64
+      - in: query
+        name: q_body
+        description: If specified, it will be used for highlighting hits in the body. If missing, no highlighting will be done.
+        type: string
+        required: false
+        
+      responses:
+        200:
+          description: successful operation
+          schema:
+            $ref: '#/definitions/Doc'
+        400:
+          description: invalid ID supplied
+        404:
+          description: document not found
+
+  /api/v2/doc/search:
+    post:
+      tags:
+      - doc
+      summary: searches documents
+      operationId: searchDocuments
+      description: |
+        By passing in the appropriate options, you can search for
+        available documents in the system
+      produces:
+      - application/json
+      parameters:
+      - in: query
+        name: es_ids
+        description: filter by editions, a comma separated list of edition IDs
+        required: false
+        type: string
+      - in: query
+        name: author_ids
+        description: filter by authors, a comma separated list of author IDs
+        required: false
+        type: string
+      - in: query
+        name: doc_ids
+        description: filter by documents, a comma separated list of document IDs
+        required: false
+        type: string
+      - in: query
+        name: gen_ids
+        description: filter by semantic genre, a comma separated list of genre IDs
+        required: false
+        type: string
+      - in: query
+        name: pd_from
+        description: filter by pub_date, lower bound
+        type: string
+        format: date
+        required: false
+      - in: query
+        name: pd_to
+        description: filter by pub_date, upper bound
+        type: string
+        format: date
+        required: false
+      - in: query
+        name: ld_from
+        description: filter by load_date, lower bound
+        type: string
+        format: date
+        required: false
+      - in: query
+        name: ld_to
+        description: filter by load_date, upper bound
+        type: string
+        format: date
+        required: false
+      - in: query
+        name: from
+        description: offset from the beginning of document set
+        type: integer
+        format: int32
+        default: 0
+        minimum: 0
+        maximum: 3000
+      - in: query
+        name: size
+        description: number of documents to return
+        type: integer
+        format: int32
+        default: 50
+        minimum: 0
+        maximum: 50
+      - in: query
+        name: doc_type_mask
+        description: filter by document type
+        type: integer
+        format: int32
+        default: 1
+      - in: query
+        name: morph
+        description: use russian morphology
+        required: false
+        type: integer
+        default: 1
+      - in: query
+        name: q_body
+        description: query body
+        type: string
+        required: false
+      - in: query
+        name: q_title
+        description: query title
+        type: string
+        required: false
+      - in: query
+        name: q_author
+        description: query author
+        type: string
+        required: false
+      - in: query
+        name: q_release
+        description: query release
+        type: string
+        required: false
+      - in: query
+        name: q_page
+        description: query page
+        type: string
+        required: false
+      - in: query
+        name: q_illustration
+        description: query illustration
+        type: string
+        required: false
+      - in: query
+        name: with_hits
+        description: return snippets with hits
+        type: boolean
+        required: false
+        default: true
+      - in: query
+        name: order_by
+        description: order results by, a comma separated list of fields
+        type: string
+        required: false
+
+      responses:
+        200:
+          description: search results matching criteria
+          schema:
+            type: object
+            properties:
+              docs:
+                type: array
+                items:
+                  $ref: '#/definitions/Hit'
+        400:
+          description: bad input parameter
+  
+  /api/v2/edition/search:
+    post:
+      tags:
+      - edition
+      summary: searches editions
+      description: |
+        By passing in the appropriate parameters, you can search for
+        available editions in the system
+      produces:
+      - application/json
+      parameters: 
+      - in: query
+        name: q
+        description: search for q in name, alias or url
+        required: false
+        type: string
+      - in: query
+        name: with_prev_name
+        description: when true, search in previous edition name as well
+        required: false
+        default: false
+        type: boolean
+      - in: query
+        name: q_geo
+        description: search by geo name
+        required: false
+        type: string
+      - in: query
+        name: morph
+        description: when true, apply morphology to search terms
+        required: false
+        default: false
+        type: boolean
+      responses:
+        200:
+          description: search results matching criteria
+          schema:
+            type: object
+            properties:
+              time:
+                type: integer
+                example: 43
+              total:
+                type: integer
+                example: 1067
+              items:
+                type: array
+                items:
+                  $ref: '#/definitions/EditionItem'
+        400:
+          description: bad input parameter
+definitions:
+  Doc:
+    type: object
+    required:
+    - id
+    - rel
+    - hits
+    properties:
+      id:
+        type: integer
+        example: 1170000
+      title: 
+        type: string
+        example: "Авиабилет Москва-Иркутск-Москва оказался самым дорогим, купленным в России в 2015"
+      pub_date: 
+        type: string
+        description: publication date
+        example: "2016-01-23 12:05:00"
+      load_date: 
+        type: string
+        description: load date
+        example: "2016-01-23 12:05:00"
+      edition_id: 
+        type: integer
+        example: 539833
+      edition_shelf:
+        type: integer
+        description: todo
+        example: 2,
+      authors_name: 
+        type: string
+        description: author name
+        example: "Дарья Есенина"
+
+      body:
+        type: string
+        example: |
+          <d><h><t>Назначен новый постоянный представитель России при ООН</t></h><b><p>Постоянным представителем России при Организации Объединенных Наций назначен Василий <hit>Небензя</hit>. Соответствующий указ подписал президент Владимир Путин, сообщили в пресс-службе Кремля. Также Небензя будет представлять Москву в Совете Безопасности ООН.Другим указом дипломат освобожден от должности заместителя министра иностранных дел, которую он занимал с июня 2013 года.Кандидатура <hit>Небензи</hit>, как сообщали источники, была одобрена комитетом Госдумы по международным делам в мае этого года. В том же месяце ее поддержал профильный комитет Совета Федерации.Должность постпреда России при ООН стала вакантной в феврале в связи со смертью Виталия Чуркина, занимавшего этот пост с апреля 2006-го. После кончины дипломата и.о. постпреда был назначен первый заместитель Чуркина Петр Ильичев. Василию <hit>Небензе</hit> 55 лет, на дипломатической работе он с 1983 года. В частности, с 1996 по 2000 год работал в постпредстве России при ООН, затем перешел в департамент международных организаций МИД. С ноября 2006-го по ноябрь 2011-го был заместителем постоянного представителя при Всемирной торговой организации в Женеве, после возглавлял департамент по гуманитарному сотрудничеству и правам человека МИД. В июне 2013-го стал заместителем министра иностранных дел.</p></b></d>
+      
+  Hit:
+    type: object
+    required:
+    - id
+    - rel
+    - hits
+    properties:
+      id:
+        type: integer
+        example: 1170000
+      title: 
+        type: string
+        example: "Авиабилет Москва-Иркутск-Москва оказался самым дорогим, купленным в России в 2015"
+      pub_date: 
+        type: string
+        description: publication date
+        example: "2016-01-23 12:05:00"
+      load_date: 
+        type: string
+        description: load date
+        example: "2016-01-23 12:05:00"
+      edition_id: 
+        type: integer
+        example: 539833
+      edition_shelf:
+        type: integer
+        description: todo
+        example: 2,
+      authors_name: 
+        type: string
+        description: author name
+        example: "Дарья Есенина"
+      index_name:
+        type: string
+        description: Index name
+        example: public_doc_pd_y2017_1_v8
+      
+      score:
+        type: number
+        format: float
+        example: 4.5573463
+      snippets:
+        type: array
+        items:
+          type: string
+          example: |
+            <d><h><t>Авиабилет <hit>Москва</hit>-Иркутск-<hit>Москва</hit> оказался самым дорогим, 
+            купленным в России в 2015</t></h><b><p>        </p><p> Составлен рейтинг самых дорогих 
+            и дешевых авиабилетов в прошлом году    По данным исследования, самым дорогим авиабилетом 
+            стал проездной документ на рейс <hit>Москва</hit> — Лондон — <hit>Москва</hit>
+
+  EditionItem:
+    type: object
+    required:
+    - id
+    - score
+    properties:
+      id:
+        type: integer
+        example: 797908
+      name: 
+        type: string
+        description: edition name
+        example: "Комсомольская правда"
+      prev_name: 
+        type: string
+        description: previous edition name (could be null)
+        example: null
+      alias: 
+        type: string
+        description: edition alias
+        example: "Комсомолка"
+      url: 
+        type: string
+        description: edition url (could be null)
+        example: null
+      geo_id:
+        type: integer
+        example: 567
+      geo_name:
+        type: string
+        example: "Ставрополь"
+      score:
+        type: number
+        format: float
+        example: 4.5573463
+    
+# Added by API Auto Mocking Plugin
+host: virtserver.swaggerhub.com
+basePath: /sergeytsivin/search-service/1.0.0
+schemes:
+ - https
