@@ -226,7 +226,7 @@ paths:
         default: false
         type: boolean
       - in: query
-        name: letter
+        name: first_letter
         description: filter by first letter of name
         required: false
         type: string
