@@ -225,6 +225,11 @@ paths:
         required: false
         default: false
         type: boolean
+      - in: query
+        name: letter
+        description: filter by first letter of name
+        required: false
+        type: string
       responses:
         200:
           description: search results matching criteria
