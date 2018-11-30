@@ -8,7 +8,7 @@ Method | HTTP request | Description
 
 
 # **api_v2_edition_search_post**
-> InlineResponse2001 api_v2_edition_search_post(q=q, with_prev_name=with_prev_name, q_geo=q_geo, morph=morph, letter=letter)
+> InlineResponse2001 api_v2_edition_search_post(q=q, with_prev_name=with_prev_name, q_geo=q_geo, morph=morph, first_letter=first_letter)
 
 searches editions
 
@@ -28,11 +28,11 @@ q = 'q_example' # str | search for q in name, alias or url (optional)
 with_prev_name = false # bool | when true, search in previous edition name as well (optional) (default to false)
 q_geo = 'q_geo_example' # str | search by geo name (optional)
 morph = false # bool | when true, apply morphology to search terms (optional) (default to false)
-letter = 'letter_example' # str | filter by first letter of name (optional)
+first_letter = 'first_letter_example' # str | filter by first letter of name (optional)
 
 try:
     # searches editions
-    api_response = api_instance.api_v2_edition_search_post(q=q, with_prev_name=with_prev_name, q_geo=q_geo, morph=morph, letter=letter)
+    api_response = api_instance.api_v2_edition_search_post(q=q, with_prev_name=with_prev_name, q_geo=q_geo, morph=morph, first_letter=first_letter)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling EditionApi->api_v2_edition_search_post: %s\n" % e)
@@ -46,7 +46,7 @@ Name | Type | Description  | Notes
  **with_prev_name** | **bool**| when true, search in previous edition name as well | [optional] [default to false]
  **q_geo** | **str**| search by geo name | [optional] 
  **morph** | **bool**| when true, apply morphology to search terms | [optional] [default to false]
- **letter** | **str**| filter by first letter of name | [optional] 
+ **first_letter** | **str**| filter by first letter of name | [optional] 
 
 ### Return type
 
