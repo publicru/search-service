@@ -47,6 +47,7 @@ class EditionApi(object):
         :param bool with_prev_name: when true, search in previous edition name as well
         :param str q_geo: search by geo name
         :param bool morph: when true, apply morphology to search terms
+        :param str letter: filter by first letter of name
         :return: InlineResponse2001
                  If the method is called asynchronously,
                  returns the request thread.
@@ -72,12 +73,13 @@ class EditionApi(object):
         :param bool with_prev_name: when true, search in previous edition name as well
         :param str q_geo: search by geo name
         :param bool morph: when true, apply morphology to search terms
+        :param str letter: filter by first letter of name
         :return: InlineResponse2001
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['q', 'with_prev_name', 'q_geo', 'morph']  # noqa: E501
+        all_params = ['q', 'with_prev_name', 'q_geo', 'morph', 'letter']  # noqa: E501
         all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -106,6 +108,8 @@ class EditionApi(object):
             query_params.append(('q_geo', params['q_geo']))  # noqa: E501
         if 'morph' in params:
             query_params.append(('morph', params['morph']))  # noqa: E501
+        if 'letter' in params:
+            query_params.append(('letter', params['letter']))  # noqa: E501
 
         header_params = {}
 
