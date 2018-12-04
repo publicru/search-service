@@ -8,7 +8,7 @@ Method | HTTP request | Description
 
 
 # **api_v2_edition_search_post**
-> InlineResponse2001 api_v2_edition_search_post(q=q, with_prev_name=with_prev_name, q_geo=q_geo, morph=morph, first_letter=first_letter)
+> InlineResponse2001 api_v2_edition_search_post(q=q, with_prev_name=with_prev_name, q_geo=q_geo, morph=morph, first_letter=first_letter, theme_ids=theme_ids, publisher_id=publisher_id, type_id=type_id, periodicity_id=periodicity_id, areal_id=areal_id, format_id=format_id)
 
 searches editions
 
@@ -29,10 +29,16 @@ with_prev_name = false # bool | when true, search in previous edition name as we
 q_geo = 'q_geo_example' # str | search by geo name (optional)
 morph = false # bool | when true, apply morphology to search terms (optional) (default to false)
 first_letter = 'first_letter_example' # str | filter by first letter of name (optional)
+theme_ids = 'theme_ids_example' # str | filter by edition themes, a comma separated list of integers (optional)
+publisher_id = 56 # int | filter by publisher_id (optional)
+type_id = 56 # int | filter by type_id (optional)
+periodicity_id = 56 # int | filter by periodicity_id (optional)
+areal_id = 56 # int | filter by areal_id (optional)
+format_id = 56 # int | filter by areal_id (optional)
 
 try:
     # searches editions
-    api_response = api_instance.api_v2_edition_search_post(q=q, with_prev_name=with_prev_name, q_geo=q_geo, morph=morph, first_letter=first_letter)
+    api_response = api_instance.api_v2_edition_search_post(q=q, with_prev_name=with_prev_name, q_geo=q_geo, morph=morph, first_letter=first_letter, theme_ids=theme_ids, publisher_id=publisher_id, type_id=type_id, periodicity_id=periodicity_id, areal_id=areal_id, format_id=format_id)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling EditionApi->api_v2_edition_search_post: %s\n" % e)
@@ -47,6 +53,12 @@ Name | Type | Description  | Notes
  **q_geo** | **str**| search by geo name | [optional] 
  **morph** | **bool**| when true, apply morphology to search terms | [optional] [default to false]
  **first_letter** | **str**| filter by first letter of name | [optional] 
+ **theme_ids** | **str**| filter by edition themes, a comma separated list of integers | [optional] 
+ **publisher_id** | **int**| filter by publisher_id | [optional] 
+ **type_id** | **int**| filter by type_id | [optional] 
+ **periodicity_id** | **int**| filter by periodicity_id | [optional] 
+ **areal_id** | **int**| filter by areal_id | [optional] 
+ **format_id** | **int**| filter by areal_id | [optional] 
 
 ### Return type
 

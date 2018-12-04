@@ -48,6 +48,12 @@ class EditionApi(object):
         :param str q_geo: search by geo name
         :param bool morph: when true, apply morphology to search terms
         :param str first_letter: filter by first letter of name
+        :param str theme_ids: filter by edition themes, a comma separated list of integers
+        :param int publisher_id: filter by publisher_id
+        :param int type_id: filter by type_id
+        :param int periodicity_id: filter by periodicity_id
+        :param int areal_id: filter by areal_id
+        :param int format_id: filter by areal_id
         :return: InlineResponse2001
                  If the method is called asynchronously,
                  returns the request thread.
@@ -74,12 +80,18 @@ class EditionApi(object):
         :param str q_geo: search by geo name
         :param bool morph: when true, apply morphology to search terms
         :param str first_letter: filter by first letter of name
+        :param str theme_ids: filter by edition themes, a comma separated list of integers
+        :param int publisher_id: filter by publisher_id
+        :param int type_id: filter by type_id
+        :param int periodicity_id: filter by periodicity_id
+        :param int areal_id: filter by areal_id
+        :param int format_id: filter by areal_id
         :return: InlineResponse2001
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['q', 'with_prev_name', 'q_geo', 'morph', 'first_letter']  # noqa: E501
+        all_params = ['q', 'with_prev_name', 'q_geo', 'morph', 'first_letter', 'theme_ids', 'publisher_id', 'type_id', 'periodicity_id', 'areal_id', 'format_id']  # noqa: E501
         all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -110,6 +122,18 @@ class EditionApi(object):
             query_params.append(('morph', params['morph']))  # noqa: E501
         if 'first_letter' in params:
             query_params.append(('first_letter', params['first_letter']))  # noqa: E501
+        if 'theme_ids' in params:
+            query_params.append(('theme_ids', params['theme_ids']))  # noqa: E501
+        if 'publisher_id' in params:
+            query_params.append(('publisher_id', params['publisher_id']))  # noqa: E501
+        if 'type_id' in params:
+            query_params.append(('type_id', params['type_id']))  # noqa: E501
+        if 'periodicity_id' in params:
+            query_params.append(('periodicity_id', params['periodicity_id']))  # noqa: E501
+        if 'areal_id' in params:
+            query_params.append(('areal_id', params['areal_id']))  # noqa: E501
+        if 'format_id' in params:
+            query_params.append(('format_id', params['format_id']))  # noqa: E501
 
         header_params = {}
 
