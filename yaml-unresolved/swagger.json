@@ -230,6 +230,36 @@ paths:
         description: filter by first letter of name
         required: false
         type: string
+      - in: query
+        name: theme_ids
+        description: filter by edition themes, a comma separated list of integers
+        required: false
+        type: string 
+      - in: query
+        name: publisher_id
+        description: filter by publisher_id
+        required: false
+        type: integer
+      - in: query
+        name: type_id
+        description: filter by type_id
+        required: false
+        type: integer
+      - in: query
+        name: periodicity_id
+        description: filter by periodicity_id
+        required: false
+        type: integer
+      - in: query
+        name: areal_id
+        description: filter by areal_id
+        required: false
+        type: integer
+      - in: query
+        name: format_id
+        description: filter by areal_id
+        required: false
+        type: integer
       responses:
         200:
           description: search results matching criteria
