@@ -260,6 +260,16 @@ paths:
         description: filter by areal_id
         required: false
         type: integer
+      - in: query
+        name: circulation_gte
+        description: filter by edition circulation is greater than or equal to
+        required: false
+        type: integer
+      - in: query
+        name: circulation_lte
+        description: filter by edition circulation is less than or equal to
+        required: false
+        type: integer
       responses:
         200:
           description: search results matching criteria
