@@ -4,8 +4,57 @@ All URIs are relative to *https://virtserver.swaggerhub.com/sergeytsivin/search-
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**api_v2_edition_edition_id_get**](EditionApi.md#api_v2_edition_edition_id_get) | **GET** /api/v2/edition/{editionId} | returns edition
 [**api_v2_edition_search_post**](EditionApi.md#api_v2_edition_search_post) | **POST** /api/v2/edition/search | searches editions
 
+
+# **api_v2_edition_edition_id_get**
+> EditionItem api_v2_edition_edition_id_get(edition_id)
+
+returns edition
+
+Returns edition specified by editionId 
+
+### Example
+```python
+from __future__ import print_function
+import time
+import swagger_client
+from swagger_client.rest import ApiException
+from pprint import pprint
+
+# create an instance of the API class
+api_instance = swagger_client.EditionApi()
+edition_id = 789 # int | ID of edition to return
+
+try:
+    # returns edition
+    api_response = api_instance.api_v2_edition_edition_id_get(edition_id)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling EditionApi->api_v2_edition_edition_id_get: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **edition_id** | **int**| ID of edition to return | 
+
+### Return type
+
+[**EditionItem**](EditionItem.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **api_v2_edition_search_post**
 > InlineResponse2001 api_v2_edition_search_post(q=q, with_prev_name=with_prev_name, q_geo=q_geo, morph=morph, first_letter=first_letter, theme_ids=theme_ids, publisher_id=publisher_id, type_id=type_id, periodicity_id=periodicity_id, areal_id=areal_id, format_id=format_id, circulation_gte=circulation_gte, circulation_lte=circulation_lte)

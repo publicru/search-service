@@ -72,6 +72,7 @@ Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
 *DocApi* | [**api_v2_doc_doc_id_get**](docs/DocApi.md#api_v2_doc_doc_id_get) | **GET** /api/v2/doc/{docId} | returns a document
 *DocApi* | [**search_documents**](docs/DocApi.md#search_documents) | **POST** /api/v2/doc/search | searches documents
+*EditionApi* | [**api_v2_edition_edition_id_get**](docs/EditionApi.md#api_v2_edition_edition_id_get) | **GET** /api/v2/edition/{editionId} | returns edition
 *EditionApi* | [**api_v2_edition_search_post**](docs/EditionApi.md#api_v2_edition_search_post) | **POST** /api/v2/edition/search | searches editions
 
 
