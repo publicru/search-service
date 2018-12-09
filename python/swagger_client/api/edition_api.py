@@ -54,6 +54,8 @@ class EditionApi(object):
         :param int periodicity_id: filter by periodicity_id
         :param int areal_id: filter by areal_id
         :param int format_id: filter by areal_id
+        :param int circulation_gte: filter by edition circulation is greater than or equal to
+        :param int circulation_lte: filter by edition circulation is less than or equal to
         :return: InlineResponse2001
                  If the method is called asynchronously,
                  returns the request thread.
@@ -86,12 +88,14 @@ class EditionApi(object):
         :param int periodicity_id: filter by periodicity_id
         :param int areal_id: filter by areal_id
         :param int format_id: filter by areal_id
+        :param int circulation_gte: filter by edition circulation is greater than or equal to
+        :param int circulation_lte: filter by edition circulation is less than or equal to
         :return: InlineResponse2001
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['q', 'with_prev_name', 'q_geo', 'morph', 'first_letter', 'theme_ids', 'publisher_id', 'type_id', 'periodicity_id', 'areal_id', 'format_id']  # noqa: E501
+        all_params = ['q', 'with_prev_name', 'q_geo', 'morph', 'first_letter', 'theme_ids', 'publisher_id', 'type_id', 'periodicity_id', 'areal_id', 'format_id', 'circulation_gte', 'circulation_lte']  # noqa: E501
         all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -134,6 +138,10 @@ class EditionApi(object):
             query_params.append(('areal_id', params['areal_id']))  # noqa: E501
         if 'format_id' in params:
             query_params.append(('format_id', params['format_id']))  # noqa: E501
+        if 'circulation_gte' in params:
+            query_params.append(('circulation_gte', params['circulation_gte']))  # noqa: E501
+        if 'circulation_lte' in params:
+            query_params.append(('circulation_lte', params['circulation_lte']))  # noqa: E501
 
         header_params = {}
 

@@ -8,7 +8,7 @@ Method | HTTP request | Description
 
 
 # **api_v2_edition_search_post**
-> InlineResponse2001 api_v2_edition_search_post(q=q, with_prev_name=with_prev_name, q_geo=q_geo, morph=morph, first_letter=first_letter, theme_ids=theme_ids, publisher_id=publisher_id, type_id=type_id, periodicity_id=periodicity_id, areal_id=areal_id, format_id=format_id)
+> InlineResponse2001 api_v2_edition_search_post(q=q, with_prev_name=with_prev_name, q_geo=q_geo, morph=morph, first_letter=first_letter, theme_ids=theme_ids, publisher_id=publisher_id, type_id=type_id, periodicity_id=periodicity_id, areal_id=areal_id, format_id=format_id, circulation_gte=circulation_gte, circulation_lte=circulation_lte)
 
 searches editions
 
@@ -35,10 +35,12 @@ type_id = 56 # int | filter by type_id (optional)
 periodicity_id = 56 # int | filter by periodicity_id (optional)
 areal_id = 56 # int | filter by areal_id (optional)
 format_id = 56 # int | filter by areal_id (optional)
+circulation_gte = 56 # int | filter by edition circulation is greater than or equal to (optional)
+circulation_lte = 56 # int | filter by edition circulation is less than or equal to (optional)
 
 try:
     # searches editions
-    api_response = api_instance.api_v2_edition_search_post(q=q, with_prev_name=with_prev_name, q_geo=q_geo, morph=morph, first_letter=first_letter, theme_ids=theme_ids, publisher_id=publisher_id, type_id=type_id, periodicity_id=periodicity_id, areal_id=areal_id, format_id=format_id)
+    api_response = api_instance.api_v2_edition_search_post(q=q, with_prev_name=with_prev_name, q_geo=q_geo, morph=morph, first_letter=first_letter, theme_ids=theme_ids, publisher_id=publisher_id, type_id=type_id, periodicity_id=periodicity_id, areal_id=areal_id, format_id=format_id, circulation_gte=circulation_gte, circulation_lte=circulation_lte)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling EditionApi->api_v2_edition_search_post: %s\n" % e)
@@ -59,6 +61,8 @@ Name | Type | Description  | Notes
  **periodicity_id** | **int**| filter by periodicity_id | [optional] 
  **areal_id** | **int**| filter by areal_id | [optional] 
  **format_id** | **int**| filter by areal_id | [optional] 
+ **circulation_gte** | **int**| filter by edition circulation is greater than or equal to | [optional] 
+ **circulation_lte** | **int**| filter by edition circulation is less than or equal to | [optional] 
 
 ### Return type
 
