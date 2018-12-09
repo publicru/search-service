@@ -191,6 +191,32 @@ paths:
                   $ref: '#/definitions/Hit'
         400:
           description: bad input parameter
+
+  /api/v2/edition/{editionId}:
+    get:
+      tags:
+      - edition
+      summary: returns edition
+      description: |
+        Returns edition specified by editionId
+      produces:
+      - application/json
+      parameters: 
+      - name: editionId
+        in: path
+        description: ID of edition to return
+        required: true
+        type: integer
+        format: int64
+
+      responses:
+        200:
+          description: successful operation
+          schema:
+            $ref: '#/definitions/EditionItem'
+        404:
+          description: edition not found
+  
   
   /api/v2/edition/search:
     post:
