@@ -21,7 +21,7 @@ tags:
 
 paths:
 
-  /api/v2/doc/{docId}:
+  /doc/{docId}:
     get:
       tags:
       - doc
@@ -53,7 +53,7 @@ paths:
         404:
           description: document not found
 
-  /api/v2/doc/search:
+  /doc/search:
     post:
       tags:
       - doc
@@ -192,7 +192,7 @@ paths:
         400:
           description: bad input parameter
 
-  /api/v2/edition/{editionId}:
+  /edition/{editionId}:
     get:
       tags:
       - edition
@@ -218,7 +218,7 @@ paths:
           description: edition not found
   
   
-  /api/v2/edition/search:
+  /edition/search:
     post:
       tags:
       - edition
@@ -442,6 +442,6 @@ definitions:
     
 # Added by API Auto Mocking Plugin
 host: virtserver.swaggerhub.com
-basePath: /sergeytsivin/search-service/1.0.0
+basePath: /api/v2
 schemes:
  - https
