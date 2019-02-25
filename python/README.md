@@ -50,30 +50,31 @@ import time
 import swagger_client
 from swagger_client.rest import ApiException
 from pprint import pprint
+
 # create an instance of the API class
-api_instance = swagger_client.DocApi()
+api_instance = swagger_client.DocApi(swagger_client.ApiClient(configuration))
 doc_id = 789 # int | ID of document to return
 q_body = 'q_body_example' # str | If specified, it will be used for highlighting hits in the body. If missing, no highlighting will be done. (optional)
 
 try:
     # returns a document
-    api_response = api_instance.api_v2_doc_doc_id_get(doc_id, q_body=q_body)
+    api_response = api_instance.doc_doc_id_get(doc_id, q_body=q_body)
     pprint(api_response)
 except ApiException as e:
-    print("Exception when calling DocApi->api_v2_doc_doc_id_get: %s\n" % e)
+    print("Exception when calling DocApi->doc_doc_id_get: %s\n" % e)
 
 ```
 
 ## Documentation for API Endpoints
 
-All URIs are relative to *https://virtserver.swaggerhub.com/sergeytsivin/search-service/1.0.0*
+All URIs are relative to *https://virtserver.swaggerhub.com/api/v2*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*DocApi* | [**api_v2_doc_doc_id_get**](docs/DocApi.md#api_v2_doc_doc_id_get) | **GET** /api/v2/doc/{docId} | returns a document
-*DocApi* | [**search_documents**](docs/DocApi.md#search_documents) | **POST** /api/v2/doc/search | searches documents
-*EditionApi* | [**api_v2_edition_edition_id_get**](docs/EditionApi.md#api_v2_edition_edition_id_get) | **GET** /api/v2/edition/{editionId} | returns edition
-*EditionApi* | [**api_v2_edition_search_post**](docs/EditionApi.md#api_v2_edition_search_post) | **POST** /api/v2/edition/search | searches editions
+*DocApi* | [**doc_doc_id_get**](docs/DocApi.md#doc_doc_id_get) | **GET** /doc/{docId} | returns a document
+*DocApi* | [**search_documents**](docs/DocApi.md#search_documents) | **POST** /doc/search | searches documents
+*EditionApi* | [**edition_edition_id_get**](docs/EditionApi.md#edition_edition_id_get) | **GET** /edition/{editionId} | returns edition
+*EditionApi* | [**edition_search_post**](docs/EditionApi.md#edition_search_post) | **POST** /edition/search | searches editions
 
 
 ## Documentation For Models

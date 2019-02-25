@@ -334,6 +334,9 @@ class Hit(object):
                 ))
             else:
                 result[attr] = value
+        if issubclass(Hit, dict):
+            for key, value in self.items():
+                result[key] = value
 
         return result
 

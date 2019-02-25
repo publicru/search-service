@@ -33,16 +33,16 @@ class DocApi(object):
             api_client = ApiClient()
         self.api_client = api_client
 
-    def api_v2_doc_doc_id_get(self, doc_id, **kwargs):  # noqa: E501
+    def doc_doc_id_get(self, doc_id, **kwargs):  # noqa: E501
         """returns a document  # noqa: E501
 
         Returns document specified by docId, optionally with highlighted hits   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.api_v2_doc_doc_id_get(doc_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.doc_doc_id_get(doc_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param int doc_id: ID of document to return (required)
         :param str q_body: If specified, it will be used for highlighting hits in the body. If missing, no highlighting will be done.
         :return: Doc
@@ -50,22 +50,22 @@ class DocApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
-            return self.api_v2_doc_doc_id_get_with_http_info(doc_id, **kwargs)  # noqa: E501
+        if kwargs.get('async_req'):
+            return self.doc_doc_id_get_with_http_info(doc_id, **kwargs)  # noqa: E501
         else:
-            (data) = self.api_v2_doc_doc_id_get_with_http_info(doc_id, **kwargs)  # noqa: E501
+            (data) = self.doc_doc_id_get_with_http_info(doc_id, **kwargs)  # noqa: E501
             return data
 
-    def api_v2_doc_doc_id_get_with_http_info(self, doc_id, **kwargs):  # noqa: E501
+    def doc_doc_id_get_with_http_info(self, doc_id, **kwargs):  # noqa: E501
         """returns a document  # noqa: E501
 
         Returns document specified by docId, optionally with highlighted hits   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.api_v2_doc_doc_id_get_with_http_info(doc_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.doc_doc_id_get_with_http_info(doc_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param int doc_id: ID of document to return (required)
         :param str q_body: If specified, it will be used for highlighting hits in the body. If missing, no highlighting will be done.
         :return: Doc
@@ -74,7 +74,7 @@ class DocApi(object):
         """
 
         all_params = ['doc_id', 'q_body']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -84,14 +84,14 @@ class DocApi(object):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method api_v2_doc_doc_id_get" % key
+                    " to method doc_doc_id_get" % key
                 )
             params[key] = val
         del params['kwargs']
         # verify the required parameter 'doc_id' is set
         if ('doc_id' not in params or
                 params['doc_id'] is None):
-            raise ValueError("Missing the required parameter `doc_id` when calling `api_v2_doc_doc_id_get`")  # noqa: E501
+            raise ValueError("Missing the required parameter `doc_id` when calling `doc_doc_id_get`")  # noqa: E501
 
         collection_formats = {}
 
@@ -117,7 +117,7 @@ class DocApi(object):
         auth_settings = []  # noqa: E501
 
         return self.api_client.call_api(
-            '/api/v2/doc/{docId}', 'GET',
+            '/doc/{docId}', 'GET',
             path_params,
             query_params,
             header_params,
@@ -126,7 +126,7 @@ class DocApi(object):
             files=local_var_files,
             response_type='Doc',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -137,11 +137,11 @@ class DocApi(object):
 
         By passing in the appropriate options, you can search for available documents in the system   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.search_documents(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.search_documents(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str es_ids: filter by editions, a comma separated list of edition IDs
         :param str author_ids: filter by authors, a comma separated list of author IDs
         :param str doc_ids: filter by documents, a comma separated list of document IDs
@@ -167,7 +167,7 @@ class DocApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.search_documents_with_http_info(**kwargs)  # noqa: E501
         else:
             (data) = self.search_documents_with_http_info(**kwargs)  # noqa: E501
@@ -178,11 +178,11 @@ class DocApi(object):
 
         By passing in the appropriate options, you can search for available documents in the system   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.search_documents_with_http_info(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.search_documents_with_http_info(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str es_ids: filter by editions, a comma separated list of edition IDs
         :param str author_ids: filter by authors, a comma separated list of author IDs
         :param str doc_ids: filter by documents, a comma separated list of document IDs
@@ -209,7 +209,7 @@ class DocApi(object):
         """
 
         all_params = ['es_ids', 'author_ids', 'doc_ids', 'gen_ids', 'pd_from', 'pd_to', 'ld_from', 'ld_to', '_from', 'size', 'doc_type_mask', 'morph', 'q_body', 'q_title', 'q_author', 'q_release', 'q_page', 'q_illustration', 'with_hits', 'order_by']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -292,7 +292,7 @@ class DocApi(object):
         auth_settings = []  # noqa: E501
 
         return self.api_client.call_api(
-            '/api/v2/doc/search', 'POST',
+            '/doc/search', 'POST',
             path_params,
             query_params,
             header_params,
@@ -301,7 +301,7 @@ class DocApi(object):
             files=local_var_files,
             response_type='InlineResponse200',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),

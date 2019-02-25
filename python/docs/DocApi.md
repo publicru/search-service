@@ -1,15 +1,15 @@
 # swagger_client.DocApi
 
-All URIs are relative to *https://virtserver.swaggerhub.com/sergeytsivin/search-service/1.0.0*
+All URIs are relative to *https://virtserver.swaggerhub.com/api/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**api_v2_doc_doc_id_get**](DocApi.md#api_v2_doc_doc_id_get) | **GET** /api/v2/doc/{docId} | returns a document
-[**search_documents**](DocApi.md#search_documents) | **POST** /api/v2/doc/search | searches documents
+[**doc_doc_id_get**](DocApi.md#doc_doc_id_get) | **GET** /doc/{docId} | returns a document
+[**search_documents**](DocApi.md#search_documents) | **POST** /doc/search | searches documents
 
 
-# **api_v2_doc_doc_id_get**
-> Doc api_v2_doc_doc_id_get(doc_id, q_body=q_body)
+# **doc_doc_id_get**
+> Doc doc_doc_id_get(doc_id, q_body=q_body)
 
 returns a document
 
@@ -30,10 +30,10 @@ q_body = 'q_body_example' # str | If specified, it will be used for highlighting
 
 try:
     # returns a document
-    api_response = api_instance.api_v2_doc_doc_id_get(doc_id, q_body=q_body)
+    api_response = api_instance.doc_doc_id_get(doc_id, q_body=q_body)
     pprint(api_response)
 except ApiException as e:
-    print("Exception when calling DocApi->api_v2_doc_doc_id_get: %s\n" % e)
+    print("Exception when calling DocApi->doc_doc_id_get: %s\n" % e)
 ```
 
 ### Parameters

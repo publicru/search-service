@@ -47,7 +47,7 @@ class Configuration(six.with_metaclass(TypeWithDefault, object)):
     def __init__(self):
         """Constructor"""
         # Default Base url
-        self.host = "https://virtserver.swaggerhub.com/sergeytsivin/search-service/1.0.0"
+        self.host = "https://virtserver.swaggerhub.com/api/v2"
         # Temp file folder for downloading files
         self.temp_folder_path = None
 

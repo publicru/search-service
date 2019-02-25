@@ -26,5 +26,5 @@ from swagger_client.configuration import Configuration
 from swagger_client.models.doc import Doc
 from swagger_client.models.edition_item import EditionItem
 from swagger_client.models.hit import Hit
-from swagger_client.models.inline_response_200 import InlineResponse200
-from swagger_client.models.inline_response_200_1 import InlineResponse2001
+from swagger_client.models.inline_response200 import InlineResponse200
+from swagger_client.models.inline_response2001 import InlineResponse2001

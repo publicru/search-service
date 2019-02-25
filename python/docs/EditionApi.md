@@ -1,15 +1,15 @@
 # swagger_client.EditionApi
 
-All URIs are relative to *https://virtserver.swaggerhub.com/sergeytsivin/search-service/1.0.0*
+All URIs are relative to *https://virtserver.swaggerhub.com/api/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**api_v2_edition_edition_id_get**](EditionApi.md#api_v2_edition_edition_id_get) | **GET** /api/v2/edition/{editionId} | returns edition
-[**api_v2_edition_search_post**](EditionApi.md#api_v2_edition_search_post) | **POST** /api/v2/edition/search | searches editions
+[**edition_edition_id_get**](EditionApi.md#edition_edition_id_get) | **GET** /edition/{editionId} | returns edition
+[**edition_search_post**](EditionApi.md#edition_search_post) | **POST** /edition/search | searches editions
 
 
-# **api_v2_edition_edition_id_get**
-> EditionItem api_v2_edition_edition_id_get(edition_id)
+# **edition_edition_id_get**
+> EditionItem edition_edition_id_get(edition_id)
 
 returns edition
 
@@ -29,10 +29,10 @@ edition_id = 789 # int | ID of edition to return
 
 try:
     # returns edition
-    api_response = api_instance.api_v2_edition_edition_id_get(edition_id)
+    api_response = api_instance.edition_edition_id_get(edition_id)
     pprint(api_response)
 except ApiException as e:
-    print("Exception when calling EditionApi->api_v2_edition_edition_id_get: %s\n" % e)
+    print("Exception when calling EditionApi->edition_edition_id_get: %s\n" % e)
 ```
 
 ### Parameters
@@ -56,8 +56,8 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **api_v2_edition_search_post**
-> InlineResponse2001 api_v2_edition_search_post(q=q, with_prev_name=with_prev_name, q_geo=q_geo, morph=morph, first_letter=first_letter, theme_ids=theme_ids, publisher_id=publisher_id, type_id=type_id, periodicity_id=periodicity_id, areal_id=areal_id, format_id=format_id, circulation_gte=circulation_gte, circulation_lte=circulation_lte)
+# **edition_search_post**
+> InlineResponse2001 edition_search_post(q=q, with_prev_name=with_prev_name, q_geo=q_geo, morph=morph, first_letter=first_letter, theme_ids=theme_ids, publisher_id=publisher_id, type_id=type_id, periodicity_id=periodicity_id, areal_id=areal_id, format_id=format_id, circulation_gte=circulation_gte, circulation_lte=circulation_lte)
 
 searches editions
 
@@ -89,10 +89,10 @@ circulation_lte = 56 # int | filter by edition circulation is less than or equal
 
 try:
     # searches editions
-    api_response = api_instance.api_v2_edition_search_post(q=q, with_prev_name=with_prev_name, q_geo=q_geo, morph=morph, first_letter=first_letter, theme_ids=theme_ids, publisher_id=publisher_id, type_id=type_id, periodicity_id=periodicity_id, areal_id=areal_id, format_id=format_id, circulation_gte=circulation_gte, circulation_lte=circulation_lte)
+    api_response = api_instance.edition_search_post(q=q, with_prev_name=with_prev_name, q_geo=q_geo, morph=morph, first_letter=first_letter, theme_ids=theme_ids, publisher_id=publisher_id, type_id=type_id, periodicity_id=periodicity_id, areal_id=areal_id, format_id=format_id, circulation_gte=circulation_gte, circulation_lte=circulation_lte)
     pprint(api_response)
 except ApiException as e:
-    print("Exception when calling EditionApi->api_v2_edition_search_post: %s\n" % e)
+    print("Exception when calling EditionApi->edition_search_post: %s\n" % e)
 ```
 
 ### Parameters

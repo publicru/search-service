@@ -29,15 +29,15 @@ class TestEditionApi(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def test_api_v2_edition_edition_id_get(self):
-        """Test case for api_v2_edition_edition_id_get
+    def test_edition_edition_id_get(self):
+        """Test case for edition_edition_id_get
 
         returns edition  # noqa: E501
         """
         pass
 
-    def test_api_v2_edition_search_post(self):
-        """Test case for api_v2_edition_search_post
+    def test_edition_search_post(self):
+        """Test case for edition_search_post
 
         searches editions  # noqa: E501
         """

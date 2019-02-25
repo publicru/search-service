@@ -33,38 +33,38 @@ class EditionApi(object):
             api_client = ApiClient()
         self.api_client = api_client
 
-    def api_v2_edition_edition_id_get(self, edition_id, **kwargs):  # noqa: E501
+    def edition_edition_id_get(self, edition_id, **kwargs):  # noqa: E501
         """returns edition  # noqa: E501
 
         Returns edition specified by editionId   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.api_v2_edition_edition_id_get(edition_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.edition_edition_id_get(edition_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param int edition_id: ID of edition to return (required)
         :return: EditionItem
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
-            return self.api_v2_edition_edition_id_get_with_http_info(edition_id, **kwargs)  # noqa: E501
+        if kwargs.get('async_req'):
+            return self.edition_edition_id_get_with_http_info(edition_id, **kwargs)  # noqa: E501
         else:
-            (data) = self.api_v2_edition_edition_id_get_with_http_info(edition_id, **kwargs)  # noqa: E501
+            (data) = self.edition_edition_id_get_with_http_info(edition_id, **kwargs)  # noqa: E501
             return data
 
-    def api_v2_edition_edition_id_get_with_http_info(self, edition_id, **kwargs):  # noqa: E501
+    def edition_edition_id_get_with_http_info(self, edition_id, **kwargs):  # noqa: E501
         """returns edition  # noqa: E501
 
         Returns edition specified by editionId   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.api_v2_edition_edition_id_get_with_http_info(edition_id, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.edition_edition_id_get_with_http_info(edition_id, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param int edition_id: ID of edition to return (required)
         :return: EditionItem
                  If the method is called asynchronously,
@@ -72,7 +72,7 @@ class EditionApi(object):
         """
 
         all_params = ['edition_id']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -82,14 +82,14 @@ class EditionApi(object):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method api_v2_edition_edition_id_get" % key
+                    " to method edition_edition_id_get" % key
                 )
             params[key] = val
         del params['kwargs']
         # verify the required parameter 'edition_id' is set
         if ('edition_id' not in params or
                 params['edition_id'] is None):
-            raise ValueError("Missing the required parameter `edition_id` when calling `api_v2_edition_edition_id_get`")  # noqa: E501
+            raise ValueError("Missing the required parameter `edition_id` when calling `edition_edition_id_get`")  # noqa: E501
 
         collection_formats = {}
 
@@ -113,7 +113,7 @@ class EditionApi(object):
         auth_settings = []  # noqa: E501
 
         return self.api_client.call_api(
-            '/api/v2/edition/{editionId}', 'GET',
+            '/edition/{editionId}', 'GET',
             path_params,
             query_params,
             header_params,
@@ -122,22 +122,22 @@ class EditionApi(object):
             files=local_var_files,
             response_type='EditionItem',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def api_v2_edition_search_post(self, **kwargs):  # noqa: E501
+    def edition_search_post(self, **kwargs):  # noqa: E501
         """searches editions  # noqa: E501
 
         By passing in the appropriate parameters, you can search for available editions in the system   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.api_v2_edition_search_post(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.edition_search_post(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str q: search for q in name, alias or url
         :param bool with_prev_name: when true, search in previous edition name as well
         :param str q_geo: search by geo name
@@ -156,22 +156,22 @@ class EditionApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
-            return self.api_v2_edition_search_post_with_http_info(**kwargs)  # noqa: E501
+        if kwargs.get('async_req'):
+            return self.edition_search_post_with_http_info(**kwargs)  # noqa: E501
         else:
-            (data) = self.api_v2_edition_search_post_with_http_info(**kwargs)  # noqa: E501
+            (data) = self.edition_search_post_with_http_info(**kwargs)  # noqa: E501
             return data
 
-    def api_v2_edition_search_post_with_http_info(self, **kwargs):  # noqa: E501
+    def edition_search_post_with_http_info(self, **kwargs):  # noqa: E501
         """searches editions  # noqa: E501
 
         By passing in the appropriate parameters, you can search for available editions in the system   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.api_v2_edition_search_post_with_http_info(async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.edition_search_post_with_http_info(async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str q: search for q in name, alias or url
         :param bool with_prev_name: when true, search in previous edition name as well
         :param str q_geo: search by geo name
@@ -191,7 +191,7 @@ class EditionApi(object):
         """
 
         all_params = ['q', 'with_prev_name', 'q_geo', 'morph', 'first_letter', 'theme_ids', 'publisher_id', 'type_id', 'periodicity_id', 'areal_id', 'format_id', 'circulation_gte', 'circulation_lte']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -201,7 +201,7 @@ class EditionApi(object):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method api_v2_edition_search_post" % key
+                    " to method edition_search_post" % key
                 )
             params[key] = val
         del params['kwargs']
@@ -252,7 +252,7 @@ class EditionApi(object):
         auth_settings = []  # noqa: E501
 
         return self.api_client.call_api(
-            '/api/v2/edition/search', 'POST',
+            '/edition/search', 'POST',
             path_params,
             query_params,
             header_params,
@@ -261,7 +261,7 @@ class EditionApi(object):
             files=local_var_files,
             response_type='InlineResponse2001',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),

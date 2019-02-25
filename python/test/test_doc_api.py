@@ -29,8 +29,8 @@ class TestDocApi(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def test_api_v2_doc_doc_id_get(self):
-        """Test case for api_v2_doc_doc_id_get
+    def test_doc_doc_id_get(self):
+        """Test case for doc_doc_id_get
 
         returns a document  # noqa: E501
         """

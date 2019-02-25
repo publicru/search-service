@@ -280,6 +280,9 @@ class Doc(object):
                 ))
             else:
                 result[attr] = value
+        if issubclass(Doc, dict):
+            for key, value in self.items():
+                result[key] = value
 
         return result
 
