@@ -142,7 +142,8 @@ class DocApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str es_ids: filter by editions, a comma separated list of edition IDs
+        :param str es_ids: filter by editions series, a comma separated list of edition series IDs
+        :param str e_ids: filter by editions, a comma separated list of edition IDs
         :param str author_ids: filter by authors, a comma separated list of author IDs
         :param str doc_ids: filter by documents, a comma separated list of document IDs
         :param str gen_ids: filter by semantic genre, a comma separated list of genre IDs
@@ -183,7 +184,8 @@ class DocApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str es_ids: filter by editions, a comma separated list of edition IDs
+        :param str es_ids: filter by editions series, a comma separated list of edition series IDs
+        :param str e_ids: filter by editions, a comma separated list of edition IDs
         :param str author_ids: filter by authors, a comma separated list of author IDs
         :param str doc_ids: filter by documents, a comma separated list of document IDs
         :param str gen_ids: filter by semantic genre, a comma separated list of genre IDs
@@ -208,7 +210,7 @@ class DocApi(object):
                  returns the request thread.
         """
 
-        all_params = ['es_ids', 'author_ids', 'doc_ids', 'gen_ids', 'pd_from', 'pd_to', 'ld_from', 'ld_to', '_from', 'size', 'doc_type_mask', 'morph', 'q_body', 'q_title', 'q_author', 'q_release', 'q_page', 'q_illustration', 'with_hits', 'order_by']  # noqa: E501
+        all_params = ['es_ids', 'e_ids', 'author_ids', 'doc_ids', 'gen_ids', 'pd_from', 'pd_to', 'ld_from', 'ld_to', '_from', 'size', 'doc_type_mask', 'morph', 'q_body', 'q_title', 'q_author', 'q_release', 'q_page', 'q_illustration', 'with_hits', 'order_by']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -239,6 +241,8 @@ class DocApi(object):
         query_params = []
         if 'es_ids' in params:
             query_params.append(('es_ids', params['es_ids']))  # noqa: E501
+        if 'e_ids' in params:
+            query_params.append(('e_ids', params['e_ids']))  # noqa: E501
         if 'author_ids' in params:
             query_params.append(('author_ids', params['author_ids']))  # noqa: E501
         if 'doc_ids' in params:

@@ -59,7 +59,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **search_documents**
-> InlineResponse200 search_documents(es_ids=es_ids, author_ids=author_ids, doc_ids=doc_ids, gen_ids=gen_ids, pd_from=pd_from, pd_to=pd_to, ld_from=ld_from, ld_to=ld_to, _from=_from, size=size, doc_type_mask=doc_type_mask, morph=morph, q_body=q_body, q_title=q_title, q_author=q_author, q_release=q_release, q_page=q_page, q_illustration=q_illustration, with_hits=with_hits, order_by=order_by)
+> InlineResponse200 search_documents(es_ids=es_ids, e_ids=e_ids, author_ids=author_ids, doc_ids=doc_ids, gen_ids=gen_ids, pd_from=pd_from, pd_to=pd_to, ld_from=ld_from, ld_to=ld_to, _from=_from, size=size, doc_type_mask=doc_type_mask, morph=morph, q_body=q_body, q_title=q_title, q_author=q_author, q_release=q_release, q_page=q_page, q_illustration=q_illustration, with_hits=with_hits, order_by=order_by)
 
 searches documents
 
@@ -75,7 +75,8 @@ from pprint import pprint
 
 # create an instance of the API class
 api_instance = swagger_client.DocApi()
-es_ids = 'es_ids_example' # str | filter by editions, a comma separated list of edition IDs (optional)
+es_ids = 'es_ids_example' # str | filter by editions series, a comma separated list of edition series IDs (optional)
+e_ids = 'e_ids_example' # str | filter by editions, a comma separated list of edition IDs (optional)
 author_ids = 'author_ids_example' # str | filter by authors, a comma separated list of author IDs (optional)
 doc_ids = 'doc_ids_example' # str | filter by documents, a comma separated list of document IDs (optional)
 gen_ids = 'gen_ids_example' # str | filter by semantic genre, a comma separated list of genre IDs (optional)
@@ -98,7 +99,7 @@ order_by = 'order_by_example' # str | order results by, a comma separated list o
 
 try:
     # searches documents
-    api_response = api_instance.search_documents(es_ids=es_ids, author_ids=author_ids, doc_ids=doc_ids, gen_ids=gen_ids, pd_from=pd_from, pd_to=pd_to, ld_from=ld_from, ld_to=ld_to, _from=_from, size=size, doc_type_mask=doc_type_mask, morph=morph, q_body=q_body, q_title=q_title, q_author=q_author, q_release=q_release, q_page=q_page, q_illustration=q_illustration, with_hits=with_hits, order_by=order_by)
+    api_response = api_instance.search_documents(es_ids=es_ids, e_ids=e_ids, author_ids=author_ids, doc_ids=doc_ids, gen_ids=gen_ids, pd_from=pd_from, pd_to=pd_to, ld_from=ld_from, ld_to=ld_to, _from=_from, size=size, doc_type_mask=doc_type_mask, morph=morph, q_body=q_body, q_title=q_title, q_author=q_author, q_release=q_release, q_page=q_page, q_illustration=q_illustration, with_hits=with_hits, order_by=order_by)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling DocApi->search_documents: %s\n" % e)
@@ -108,7 +109,8 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **es_ids** | **str**| filter by editions, a comma separated list of edition IDs | [optional] 
+ **es_ids** | **str**| filter by editions series, a comma separated list of edition series IDs | [optional] 
+ **e_ids** | **str**| filter by editions, a comma separated list of edition IDs | [optional] 
  **author_ids** | **str**| filter by authors, a comma separated list of author IDs | [optional] 
  **doc_ids** | **str**| filter by documents, a comma separated list of document IDs | [optional] 
  **gen_ids** | **str**| filter by semantic genre, a comma separated list of genre IDs | [optional] 
