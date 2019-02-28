@@ -67,6 +67,11 @@ paths:
       parameters:
       - in: query
         name: es_ids
+        description: filter by editions series, a comma separated list of edition series IDs
+        required: false
+        type: string
+      - in: query
+        name: e_ids
         description: filter by editions, a comma separated list of edition IDs
         required: false
         type: string
