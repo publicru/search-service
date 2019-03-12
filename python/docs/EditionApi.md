@@ -5,6 +5,7 @@ All URIs are relative to *https://virtserver.swaggerhub.com/api/v2*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**edition_edition_id_get**](EditionApi.md#edition_edition_id_get) | **GET** /edition/{editionId} | returns edition
+[**edition_prefix_search_post**](EditionApi.md#edition_prefix_search_post) | **POST** /edition/prefix_search | searches editions by prefix
 [**edition_search_post**](EditionApi.md#edition_search_post) | **POST** /edition/search | searches editions
 
 
@@ -44,6 +45,54 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**EditionItem**](EditionItem.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **edition_prefix_search_post**
+> InlineResponse2001 edition_prefix_search_post(q=q)
+
+searches editions by prefix
+
+By passing in the appropriate parameters, you can search for available editions in the system 
+
+### Example
+```python
+from __future__ import print_function
+import time
+import swagger_client
+from swagger_client.rest import ApiException
+from pprint import pprint
+
+# create an instance of the API class
+api_instance = swagger_client.EditionApi()
+q = 'q_example' # str | search for q in name, alias or url (optional)
+
+try:
+    # searches editions by prefix
+    api_response = api_instance.edition_prefix_search_post(q=q)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling EditionApi->edition_prefix_search_post: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **q** | **str**| search for q in name, alias or url | [optional] 
+
+### Return type
+
+[**InlineResponse2001**](InlineResponse2001.md)
 
 ### Authorization
 

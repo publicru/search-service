@@ -36,6 +36,13 @@ class TestEditionApi(unittest.TestCase):
         """
         pass
 
+    def test_edition_prefix_search_post(self):
+        """Test case for edition_prefix_search_post
+
+        searches editions by prefix  # noqa: E501
+        """
+        pass
+
     def test_edition_search_post(self):
         """Test case for edition_search_post
 
