@@ -222,7 +222,6 @@ paths:
         404:
           description: edition not found
   
-  
   /edition/search:
     post:
       tags:
@@ -319,6 +318,42 @@ paths:
                   $ref: '#/definitions/EditionItem'
         400:
           description: bad input parameter
+  
+  /edition/prefix_search:
+    post:
+      tags:
+      - edition
+      summary: searches editions by prefix
+      description: |
+        By passing in the appropriate parameters, you can search for
+        available editions in the system
+      produces:
+      - application/json
+      parameters: 
+      - in: query
+        name: q
+        description: search for q in name, alias or url
+        required: false
+        type: string
+      responses:
+        200:
+          description: search results matching criteria
+          schema:
+            type: object
+            properties:
+              time:
+                type: integer
+                example: 43
+              total:
+                type: integer
+                example: 1067
+              items:
+                type: array
+                items:
+                  $ref: '#/definitions/EditionItem'
+        400:
+          description: bad input parameter
+    
 definitions:
   Doc:
     type: object
