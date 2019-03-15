@@ -1,9 +1,11 @@
 swagger: '2.0'
 info:
-  description: Searches documens and editions 
   version: "2.0.0"
-  title: Public Search API
+  title: Внутренний API для поиска по базе СМИ
   # put the contact info for your development or API team
+  description: |
+    Позволяет искать документы и издания с использованием языка 
+    запроосов public.ru
   contact:
     email: you@your-company.com
 
