@@ -1,8 +1,8 @@
 # coding: utf-8
 """
-    Public Search API
+    Внутренний API для поиска по базе СМИ
 
-    Searches documens and editions  # noqa: E501
+    Позволяет искать документы и издания с использованием языка  запроосов public.ru   # noqa: E501
 
     OpenAPI spec version: 2.0.0
     Contact: you@your-company.com

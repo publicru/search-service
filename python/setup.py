@@ -1,9 +1,9 @@
 # coding: utf-8
 
 """
-    Public Search API
+    Внутренний API для поиска по базе СМИ
 
-    Searches documens and editions  # noqa: E501
+    Позволяет искать документы и издания с использованием языка  запроосов public.ru   # noqa: E501
 
     OpenAPI spec version: 2.0.0
     Contact: you@your-company.com
@@ -27,14 +27,14 @@ REQUIRES = ["urllib3 >= 1.15", "six >= 1.10", "certifi", "python-dateutil"]
 setup(
     name=NAME,
     version=VERSION,
-    description="Public Search API",
+    description="Внутренний API для поиска по базе СМИ",
     author_email="you@your-company.com",
     url="",
-    keywords=["Swagger", "Public Search API"],
+    keywords=["Swagger", "Внутренний API для поиска по базе СМИ"],
     install_requires=REQUIRES,
     packages=find_packages(),
     include_package_data=True,
     long_description="""\
-    Searches documens and editions  # noqa: E501
+    Позволяет искать документы и издания с использованием языка  запроосов public.ru   # noqa: E501
     """
 )
