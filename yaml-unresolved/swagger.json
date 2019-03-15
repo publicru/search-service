@@ -5,7 +5,8 @@ info:
   # put the contact info for your development or API team
   description: |
     Позволяет искать документы и издания с использованием языка 
-    запроосов public.ru
+    запроосов public.ru. Не требует авторизации, поэтому должен быть доступен
+    только из внутренней сети.
   contact:
     email: you@your-company.com
 
